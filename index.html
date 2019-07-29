@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		lesson6
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function isCharPresent (string, symbol){
+		var quantityOfCheckOperations=string.length;
+		for (var i=0;i<=quantityOfCheckOperations;i++){
+			var result =(string[i]==symbol);
+			 if (result>0) {
+			 	break;
+			 } else{
+			 	continue;
+			 }
+		}
+		return result;
+	}
+	console.log(isCharPresent('house', 'e'));
+		function charIndexOf(string, symbol){
+			var quantityOfCheckOperations=string.length;
+			for (var i=0;i<=quantityOfCheckOperations;i++){
+				var result =(string[i]==symbol);
+				var resultIndex;
+				 if (result>0) {
+				 	 resultIndex=i; 
+				 	 break;
+				 } else{
+				 	resultIndex=-1;
+				 }
+			}
+			return resultIndex;
+		}
+	console.log(charIndexOf('house', 'h'));
+
+	var obj= {};
+	obj.firstName='Ivan';
+	obj['second name']='Sodorov';
+	obj.age=25;
+	obj.wife={
+		firstName:'Nataliya',
+		['second name']:'Sidorova',
+		age:22
+	};
+	var user={};
+		function objectClone(cloneBase){
+			for (var key in cloneBase){
+				if (typeof (cloneBase[key])==='object'&&cloneBase[key]!==null){
+					user[key]=objectClone(cloneBase[key]);
+				}
+				else {
+					user[key]=cloneBase[key];
+				}
+			}
+			return user;
+		}
+		console.log(objectClone(obj));
+		console.log(user);
+		obj.age=60;
+		obj.wife.age=70;
+		console.log(obj);
+		console.log(user);
+	</script>
+</body>
+</html>
